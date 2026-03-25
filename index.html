@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strength in Healing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --royal-blue: #1e3a8a;
+            --royal-blue-light: #3b82f6;
+            --navy: #0f172a;
+            --gold: #d4af37;
+            --silver: #94a3b8;
+            --white: #ffffff;
+            --cream: #f8fafc;
+            --text-dark: #1e293b;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            color: var(--white);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .page-wrapper {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        .hero-border {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 900px;
+            height: 80%;
+            border: 2px solid var(--gold);
+            border-radius: 8px;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            line-height: 1.2;
+            text-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .gold-accent {
+            color: var(--gold);
+        }
+
+        .subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: var(--silver);
+            margin-bottom: 60px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .divider {
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 50px auto;
+        }
+
+        .strength-button {
+            margin-top: 60px;
+            background: linear-gradient(135deg, var(--royal-blue) 0%, var(--royal-blue-light) 100%);
+            color: var(--white);
+            border: 2px solid var(--gold);
+            padding: 20px 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .strength-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .strength-button:hover::before {
+            left: 100%;
+        }
+
+        .strength-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+            border-color: var(--white);
+        }
+
+        /* Message Sections */
+        .message-section {
+            padding: 100px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .message-box {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 60px 50px;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            margin-bottom: 60px;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 40px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .message-text {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: var(--silver);
+            margin-bottom: 30px;
+            text-align: left;
+            font-weight: 300;
+        }
+
+        .message-text strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .highlight-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--gold);
+            margin: 50px 0;
+            text-align: center;
+            font-weight: 400;
+            line-height: 1.8;
+            position: relative;
+            padding: 30px 0;
+        }
+
+        .highlight-quote::before,
+        .highlight-quote::after {
+            content: '"';
+            font-size: 4rem;
+            color: var(--royal-blue-light);
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        .highlight-quote::before {
+            top: -20px;
+            left: 0;
+        }
+
+        .highlight-quote::after {
+            bottom: -60px;
+            right: 0;
+        }
+
+        /* Recovery Journey */
+        .journey-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .journey-card {
+            background: rgba(30, 58, 138, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 35px 25px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .journey-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            background: rgba(30, 58, 138, 0.3);
+        }
+
+        .journey-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .journey-phase {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .journey-desc {
+            font-size: 0.95rem;
+            color: var(--silver);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Pillars Section */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .pillar {
+            text-align: center;
+        }
+
+        .pillar-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--gold);
+            background: rgba(30, 58, 138, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .pillar:hover .pillar-icon {
+            transform: scale(1.1);
+            background: rgba(30, 58, 138, 0.4);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .pillar-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pillar-text {
+            font-size: 0.95rem;
+            color: var(--silver);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .signature {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-top: 60px;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 80px 20px 40px;
+            color: var(--silver);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            margin-top: 80px;
+        }
+
+        .footer-text {
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 20px;
+            }
+
+            .message-box {
+                padding: 40px 30px;
+            }
+
+            .message-text {
+                font-size: 1.05rem;
+                line-height: 1.8;
+            }
+
+            .strength-button {
+                width: 100%;
+                max-width: 400px;
+                padding: 18px 40px;
+                font-size: 1rem;
+            }
+
+            .journey-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .pillars-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .highlight-quote {
+                font-size: 1.3rem;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+
+            .message-box {
+                padding: 35px 25px;
+            }
+
+            .message-text {
+                font-size: 1rem;
+            }
+
+            .strength-button {
+                padding: 16px 35px;
+                font-size: 0.95rem;
+                max-width: 320px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-border"></div>
+            
+            <div class="hero-content">
+                <h1 class="main-title">
+                    Strength in <span class="gold-accent">Healing</span>
+                </h1>
+                
+                <div class="divider"></div>
+                
+                <p class="subtitle">
+                    Every journey has its challenges. This is yours to conquer with grace and resilience.
+                </p>
+                
+                <button class="strength-button" id="strengthButton">
+                    Your Inner Strength
+                </button>
+            </div>
+        </section>
+
+        <!-- Belief Message -->
+        <section class="message-section">
+            <div class="message-box">
+                <h2 class="section-title">Unwavering Belief</h2>
+                
+                <p class="message-text">
+                    Recovery is not merely physical—it is a testament to your <strong>mental fortitude</strong> and <strong>emotional resilience</strong>. This fracture is temporary. Your strength is permanent.
+                </p>
+                
+                <p class="message-text">
+                    I have witnessed your determination in countless situations. This challenge is no different. You possess an inner strength that transcends physical limitations.
+                </p>
+                
+                <p class="message-text">
+                    <strong>Healing requires patience.</strong> It demands trust in your body's remarkable ability to repair itself. Every day, you are getting stronger—even when progress feels imperceptible.
+                </p>
+                
+                <p class="highlight-quote">
+                    The human spirit is stronger than anything that can happen to it.
+                </p>
+                
+                <div class="signature">— Standing With You, Always</div>
+            </div>
+
+            <!-- Recovery Journey -->
+            <div class="message-box">
+                <h2 class="section-title">The Path Forward</h2>
+                
+                <div class="journey-grid">
+                    <div class="journey-card">
+                        <div class="journey-number">I</div>
+                        <div class="journey-phase">Foundation</div>
+                        <div class="journey-desc">Rest is not weakness. It is the foundation upon which complete recovery is built. Honor this phase.</div>
+                    </div>
+
+                    <div class="journey-card">
+                        <div class="journey-number">II</div>
+                        <div class="journey-phase">Progress</div>
+                        <div class="journey-desc">Small victories accumulate. Each day brings measurable improvement. Trust the process completely.</div>
+                    </div>
+
+                    <div class="journey-card">
+                        <div class="journey-number">III</div>
+                        <div class="journey-phase">Strength</div>
+                        <div class="journey-desc">Physical capabilities return. Confidence rebuilds. You are reclaiming what is rightfully yours.</div>
+                    </div>
+
+                    <div class="journey-card">
+                        <div class="journey-number">IV</div>
+                        <div class="journey-phase">Mastery</div>
+                        <div class="journey-desc">Complete recovery achieved. Emerging stronger, wiser, more resilient than before. Victory earned.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Principles -->
+            <div class="message-box">
+                <h2 class="section-title">Pillars of Recovery</h2>
+                
+                <div class="pillars-grid">
+                    <div class="pillar">
+                        <div class="pillar-icon">◆</div>
+                        <div class="pillar-title">Patience</div>
+                        <div class="pillar-text">True healing cannot be rushed. Time is your ally in this journey.</div>
+                    </div>
+
+                    <div class="pillar">
+                        <div class="pillar-icon">◆</div>
+                        <div class="pillar-title">Trust</div>
+                        <div class="pillar-text">Your body knows how to heal. Trust in its wisdom and capability.</div>
+                    </div>
+
+                    <div class="pillar">
+                        <div class="pillar-icon">◆</div>
+                        <div class="pillar-title">Resilience</div>
+                        <div class="pillar-text">You possess the strength to overcome this. Believe in yourself.</div>
+                    </div>
+
+                    <div class="pillar">
+                        <div class="pillar-icon">◆</div>
+                        <div class="pillar-title">Support</div>
+                        <div class="pillar-text">Tanu you are not alone, Im always here for you</div>
+                    </div>
+                </div>
+                  <div class="pillar">
+                        <div class="pillar-icon">◆</div>
+                        <div class="pillar-title">Trust</div>
+                        <div class="pillar-text">Please take care of yourself , don't think Im leaving you if I was there with you in yout highs then I will be there in your lows also, please just take care of yourself and remember I'll always wait for you </div>
+                    </div>
+                </div>
+
+                <p class="highlight-quote" style="margin-top: 60px;">
+                    This moment does not define you. How you rise from it will.
+                </p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p class="footer-text">Healing is a journey measured not in days, but in courage.</p>
+        </footer>
+    </div>
+
+    <script>
+            
+            // Create subtle golden ripples
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    const ripple = document.createElement('div');
+                    ripple.style.position = 'fixed';
+                    ripple.style.left = centerX + 'px';
+                    ripple.style.top = centerY + 'px';
+                    ripple.style.width = '20px';
+                    ripple.style.height = '20px';
+                    ripple.style.border = '2px solid #d4af37';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.pointerEvents = 'none';
+                    ripple.style.zIndex = '9999';
+                    
+                    document.body.appendChild(ripple);
+                    
+                    ripple.animate([
+                        {
+                            transform: 'translate(-50%, -50%) scale(0)',
+                            opacity: 1
+                        },
+                        {
+                            transform: 'translate(-50%, -50%) scale(15)',
+                            opacity: 0
+                        }
+                    ], {
+                        duration: 2000,
+                        easing: 'ease-out'
+                    });
+                    
+                    setTimeout(() => ripple.remove(), 2000);
+                }, i * 200);
+            }
+            
+            // Create floating diamonds
+            for (let i = 0; i < 12; i++) {
+                setTimeout(() => {
+                    const diamond = document.createElement('div');
+                    diamond.textContent = '◆';
+                    diamond.style.position = 'fixed';
+                    diamond.style.left = centerX + 'px';
+                    diamond.style.top = centerY + 'px';
+                    diamond.style.fontSize = '20px';
+                    diamond.style.color = '#d4af37';
+                    diamond.style.pointerEvents = 'none';
+                    diamond.style.zIndex = '9999';
+                    
+                    document.body.appendChild(diamond);
+                    
+                    const angle = (i / 12) * Math.PI * 2;
+                    const distance = 200;
+                    const endX = centerX + Math.cos(angle) * distance;
+                    const endY = centerY + Math.sin(angle) * distance;
+                    
+                    diamond.animate([
+                        {
+                            transform: 'translate(-50%, -50%) scale(0) rotate(0deg)',
+                            opacity: 1
+                        },
+                        {
+                            transform: `translate(${endX - centerX}px, ${endY - centerY}px) scale(1.5) rotate(180deg)`,
+                            opacity: 0
+                        }
+                    ], {
+                        duration: 2500,
+                        easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                    });
+                    
+                    setTimeout(() => diamond.remove(), 2500);
+                }, i * 80);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            setupStrengthButton();
+            console.log('Strength in healing.');
+        });
+    </script>
+</body>
+</html><!-- please tanu get well soon im really very shocked after knwoing about your fractute, why and how did suddenly this happned idl if you ever read this but i really do care about you amd what just happned , im sorry im mot there but i can feel your pain   -->
